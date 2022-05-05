@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class TableComponent {
   total = 0;
+  
   url = 'http://34.77.23.202/Home/Post/';
   row = [
     {
@@ -18,16 +19,44 @@ export class TableComponent {
       modelno: '',
       editmode: true,
     },
- 
-    
+   
   ];
+
+  State: any = [
+    { id: 1, name: "Light" },
+    { id: 2, name: "Medium" },
+    { id: 3, name: "Heavy" }
+  ]
+
+  City: any = [
+    { id: 1, name: "Light 1", state: 1 },
+    { id: 2, name: "Light 2", state: 1 },
+    { id: 3, name: "Light 3", state: 1 },
+    { id: 4, name: "Medium 1", state: 2 },
+    { id: 5, name: "Medium 2", state: 2 },
+    { id: 6, name: "Heavy 1", state: 3 },
+    { id: 7, name: "Heavy 2", state: 3 }
+  ]
+
+  selectedState : any = "";
+  selectedCity : any = "";
+  //I've taken another Variable to bind city dropdown after filter. If I used same
+  // Variable, after second filter my city dropdown will not contains all values and 
+  // Data will be null
+
+  dropdownCity: any = [];
+
+  populateCity(value) {
+    this.dropdownCity = this.City.filter(i => i.state == value);
+  }
+
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.row[0].id = 'CJDarcl';
     this.row[0].name = 'test';
-    this.row[0].quantity = 'Two Wheeler';
-    this.row[0].price="0"
+    this.row[0].quantity = '1';
+    this.row[0].price="test"
     this.row[0].modelno = 'test';
 
     this.row[0].editmode = false;

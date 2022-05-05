@@ -20,7 +20,7 @@
         <th style="max-width=60px">Company</th>
         <th>VehicleName</th>
         <th>VehicleType</th>
-        <th>Unit Price</th>
+        <th>Driver Name</th>
         <th>Model Number</th>
         <th></th>
       </tr>
@@ -39,33 +39,36 @@
           <input
             type="text"
             *ngIf="row[i].editmode === true"
-            placeholder="Enter Vehicle Name"
+            
             [(ngModel)]="row[i].name"
           />
 
           <label
             type="text"
-            placeholder="Enter Vehicle Name"
+            
             [(ngModel)]="row[i].name"
           >
             {{ row[i].name }}</label
           >
         </td>
         <td>
-          <select name="Vehicle Type" id="wheels" 
-          *ngIf="row[i].editmode === true"
-          [(ngModel)]="row[i].quantity">
-            <option value="Two Wheeler">Two Wheeler</option>
-            <option value="Four Wheeler">Four Wheeler</option>
-          </select>
 
-          <label >{{row[i].quantity}}</label>
+        <select (change)="populateCity($event.target.value)"
+        *ngIf="row[i].editmode === true"
+        [(ngModel)]="row[i].quantity" >
+        <option value="">Select Vehicle Type</option>
+        <option *ngFor="let s of State; let i = index" [value]="State[i].id" >
+         <span>{{s.name}}</span> </option>
+      </select>
+            
+      
+            <label >{{row[i].quantity}}</label>
         </td>
         <td>
           <input
             type="text"
             *ngIf="row[i].editmode === true"
-            placeholder="Enter Vehicle Name"
+            
             [(ngModel)]="row[i].price"
           />
 
@@ -75,12 +78,13 @@
           >
         </td>
         <td>
-          
-          <input
-            type="text"
-            *ngIf="item.editmode === true"
-            [(ngModel)]="row[i].modelno"
-          />
+        <select
+        *ngIf="item.editmode === true"
+        [(ngModel)]="row[i].modelno">
+        <option value="">Select Model Number</option>
+        <option *ngFor="let c of dropdownCity" [value]="c.name">{{c.name}}</option>
+      </select>
+         
 
           <label
             type="text"
