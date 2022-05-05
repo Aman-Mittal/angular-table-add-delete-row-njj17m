@@ -64,13 +64,23 @@ export class TableComponent {
      }
 
   editRow(index, data) {
-    if (this.row[index].editmode === true) {
-      this.row[index].editmode = false;
-      this.row[index] = data;
-    } else {
-      this.row[index].editmode = true;
-      this.row[index] = data;
+    if (this.row[index].id===''||
+    this.row[index].name===''||
+    this.row[index].price===''||
+    this.row[index].quantity===''||
+    this.row[index].modelno===''){
+      alert("Enter All Fields")
+    }else{
+
+      if (this.row[index].editmode === true) {
+        this.row[index].editmode = false;
+        this.row[index] = data;
+      } else {
+        this.row[index].editmode = true;
+        this.row[index] = data;
+      }
     }
+    
   }
 
   addTable() {
