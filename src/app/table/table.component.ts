@@ -15,43 +15,43 @@ export class TableComponent {
       name: '',
       price: '',
       quantity: '',
-      total: '',
+      modelNo: '',
     },
     {
       id: '',
       name: '',
       price: '',
       quantity: '',
-      total: '',
+      modelNo: '',
     },
     {
       id: '',
       name: '',
       price: '',
       quantity: '',
-      total: '',
+      modelno: '',
     },
   ];
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.row[0].id = '1';
-    this.row[1].id = '2';
-    this.row[2].id = '3';
+    this.row[0].id = 'CJDarcl';
+    this.row[1].id = 'CjDarcl';
+    this.row[2].id = 'CjDarcl';
   }
 
   addTable() {
     console.log(this.row.length);
     const obj = {
-      id: 'this.row.length',
+      id: '',
       name: '',
       price: '',
       quantity: '',
-      total: '',
+      modelNo: '',
     };
 
     this.row.push(obj);
-    this.row[this.row.length - 1].id = this.row.length.toString();
+    this.row[this.row.length - 1].id = 'CjDarcl';
   }
 
   deleteRow(x) {
@@ -61,15 +61,6 @@ export class TableComponent {
     }
   }
 
-  GrandTotal() {
-    this.row.forEach(function (item) {
-      if (item.quantity && item.price) {
-        this.total += Number(item.quantity) * Number(item.price);
-      }
-    });
-    console.log(this.total);
-    return this.total;
-  }
   addOrder() {
     const resp = this.http.post(this.url, this.row).subscribe(
       (response) => {

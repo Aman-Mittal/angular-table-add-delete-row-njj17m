@@ -17,11 +17,11 @@
     <br />
     <table class="style" (onCellEditEnter)="editing($event)">
       <tr>
-        <th style="max-width=60px">RowId</th>
+        <th style="max-width=60px">Company</th>
         <th>VehicleName</th>
         <th>VehicleType</th>
         <th>Unit Price</th>
-        <th>Total</th>
+        <th>Model Number</th>
         <th></th>
       </tr>
       <tr *ngFor="let item of row; let i = index">
@@ -34,7 +34,7 @@
           </select>
         </td>
         <td><input type="text" [(ngModel)]="item.price" /></td>
-        <td><input type="text" value="{{ item.price * item.quantity }}" /></td>
+        <td><input type="text" value="{{ item.modelNo }}" /></td>
         <td>
           <button (click)="deleteRow(i)"><i class="fa fa-trash"></i></button>
         </td>
