@@ -38,7 +38,7 @@
         <td>
           <input
             type="text"
-            *ngIf="item.editmode === true"
+            *ngIf="row[i].editmode === true"
             placeholder="Enter Vehicle Name"
             [(ngModel)]="row[i].name"
           />
@@ -64,15 +64,13 @@
         <td>
           <input
             type="text"
-            *ngIf="item.editmode === true"
+            *ngIf="row[i].editmode === true"
             placeholder="Enter Vehicle Name"
             [(ngModel)]="row[i].price"
           />
 
           <label
-            type="text"
-            placeholder="Enter Vehicle Name"
-          >
+            type="text">
             {{ row[i].price }}</label
           >
         </td>
@@ -81,7 +79,6 @@
           <input
             type="text"
             *ngIf="item.editmode === true"
-            placeholder="Enter Vehicle Name"
             [(ngModel)]="row[i].modelno"
           />
 
