@@ -1,0 +1,44 @@
+<html>
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="upgrade-insecure-requests"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+
+  <body>
+    <div style="display:inline;width:100%">
+      <div style="display:inline;">
+        <button (click)="addTable()">Add Vehicle</button>
+      </div>
+    </div>
+    <br />
+    <table class="style" (onCellEditEnter)="editing($event)">
+      <tr>
+        <th style="max-width=60px">RowId</th>
+        <th>VehicleName</th>
+        <th>VehicleType</th>
+        <th>Unit Price</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let item of row; let i = index">
+        <td><input type="text" [(ngModel)]="item.id" /></td>
+        <td><input type="text" [(ngModel)]="item.name" /></td>
+        <td>
+          <select name="cars" id="cars">
+            <option value="Two Wheeler">Two Wheeler</option>
+            <option value="Four Wheeler">Four Wheeler</option>
+          </select>
+        </td>
+        <td><input type="text" [(ngModel)]="item.price" /></td>
+        <td><input type="text" value="{{ item.price * item.quantity }}" /></td>
+        <td>
+          <button (click)="deleteRow(i)"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
