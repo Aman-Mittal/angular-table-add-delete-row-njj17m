@@ -15,7 +15,7 @@ export class TableComponent {
       id: '',
       name: 'test',
       price: '',
-      quantity: '',
+      quantity: null,
       modelno: '',
       editmode: true,
     },
@@ -23,19 +23,19 @@ export class TableComponent {
   ];
 
   State: any = [
-    { id: 1, name: "Light" },
-    { id: 2, name: "Medium" },
-    { id: 3, name: "Heavy" }
+    { id: 1, name: "001 TATA LSM" },
+    { id: 2, name: "002 Mahindra SSDJ" },
+    { id: 3, name: "003 Ashok DSNG" }
   ]
 
   City: any = [
-    { id: 1, name: "Light 1", state: 1 },
-    { id: 2, name: "Light 2", state: 1 },
-    { id: 3, name: "Light 3", state: 1 },
-    { id: 4, name: "Medium 1", state: 2 },
-    { id: 5, name: "Medium 2", state: 2 },
-    { id: 6, name: "Heavy 1", state: 3 },
-    { id: 7, name: "Heavy 2", state: 3 }
+    { id: 1, name: "LSM Full Load", state: 1 },
+    { id: 2, name: "LSM BIO LOAD", state: 1 },
+    { id: 3, name: "LSM FMCG", state: 1 },
+    { id: 4, name: "SSDJ Bulk", state: 2 },
+    { id: 5, name: "SSDJ Light", state: 2 },
+    { id: 6, name: "DSNG BUlK", state: 3 },
+    { id: 7, name: "DSNG Light 2", state: 3 }
   ]
 
   selectedState : any = "";
@@ -55,9 +55,9 @@ export class TableComponent {
   ngOnInit() {
     this.row[0].id = 'CJDarcl';
     this.row[0].name = 'test';
-    this.row[0].quantity = '1';
+    this.row[0].quantity = 3;
     this.row[0].price="test"
-    this.row[0].modelno = 'test';
+    this.row[0].modelno = 'DSNG BUlK';
 
     this.row[0].editmode = false;
 
