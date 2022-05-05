@@ -25,18 +25,76 @@
         <th></th>
       </tr>
       <tr *ngFor="let item of row; let i = index">
-        <td><input type="text" [(ngModel)]="item.id" /></td>
-        <td><input type="text" [(ngModel)]="item.name" /></td>
         <td>
-          <select name="cars" id="cars">
+          <input
+            type="text"
+            *ngIf="row[i].editmode === true"
+            [(ngModel)]="row[i].id"
+            />
+
+          <label > {{ row[i].id }} </label>
+        </td>
+
+        <td>
+          <input
+            type="text"
+            *ngIf="item.editmode === true"
+            placeholder="Enter Vehicle Name"
+            [(ngModel)]="row[i].name"
+          />
+
+          <label
+            type="text"
+            placeholder="Enter Vehicle Name"
+            [(ngModel)]="row[i].name"
+          >
+            {{ row[i].name }}</label
+          >
+        </td>
+        <td>
+          <select name="Vehicle Type" id="wheels" 
+          *ngIf="row[i].editmode === true"
+          [(ngModel)]="row[i].quantity">
             <option value="Two Wheeler">Two Wheeler</option>
             <option value="Four Wheeler">Four Wheeler</option>
           </select>
+
+          <label >{{row[i].quantity}}</label>
         </td>
-        <td><input type="text" [(ngModel)]="item.price" /></td>
-        <td><input type="text" value="{{ item.modelNo }}" /></td>
+        <td>
+          <input
+            type="text"
+            *ngIf="item.editmode === true"
+            placeholder="Enter Vehicle Name"
+            [(ngModel)]="row[i].price"
+          />
+
+          <label
+            type="text"
+            placeholder="Enter Vehicle Name"
+          >
+            {{ row[i].price }}</label
+          >
+        </td>
+        <td>
+          
+          <input
+            type="text"
+            *ngIf="item.editmode === true"
+            placeholder="Enter Vehicle Name"
+            [(ngModel)]="row[i].modelno"
+          />
+
+          <label
+            type="text"
+            placeholder="Enter Vehicle Name"
+            >
+            {{ row[i].modelno }}</label
+          >
+        </td>
         <td>
           <button (click)="deleteRow(i)"><i class="fa fa-trash"></i></button>
+          <button (click)="editRow(i, item)">Edit/Save</button>
         </td>
       </tr>
     </table>

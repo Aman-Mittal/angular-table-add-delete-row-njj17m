@@ -12,32 +12,36 @@ export class TableComponent {
   row = [
     {
       id: '',
-      name: '',
-      price: '',
-      quantity: '',
-      modelNo: '',
-    },
-    {
-      id: '',
-      name: '',
-      price: '',
-      quantity: '',
-      modelNo: '',
-    },
-    {
-      id: '',
-      name: '',
+      name: 'test',
       price: '',
       quantity: '',
       modelno: '',
+      editmode: true,
     },
+ 
+    
   ];
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.row[0].id = 'CJDarcl';
-    this.row[1].id = 'CjDarcl';
-    this.row[2].id = 'CjDarcl';
+    this.row[0].name = 'test';
+    this.row[0].quantity = 'Two Wheeler';
+    this.row[0].price="0"
+    this.row[0].modelno = 'test';
+
+    this.row[0].editmode = false;
+
+     }
+
+  editRow(index, data) {
+    if (this.row[index].editmode === true) {
+      this.row[index].editmode = false;
+      this.row[index] = data;
+    } else {
+      this.row[index].editmode = true;
+      this.row[index] = data;
+    }
   }
 
   addTable() {
@@ -47,11 +51,16 @@ export class TableComponent {
       name: '',
       price: '',
       quantity: '',
-      modelNo: '',
+      modelno: '',
+      editmode: false,
     };
 
     this.row.push(obj);
-    this.row[this.row.length - 1].id = 'CjDarcl';
+    this
+    this.row[this.row.length - 1].editmode = true;
+   
+    
+
   }
 
   deleteRow(x) {
